@@ -1,0 +1,97 @@
+<section data-transition="none">
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+#!/bin/bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+INSTALLDIR=$SCRIPTPATH/../dist/
+
+if [ ! -d INSTALLDIR ]; then
+ mkdir -p ${INSTALLDIR}
+fi
+
+current="$(curl -fsSL 'https://downloads.joomla.org/api/v1/latest/cms' | jq -r '.branches[3].version')"
+
+curl -o ${INSTALLDIR}joomla.tar.bz2 -SL https://github.com/joomla/joomla-cms/releases/download/${current}/Joomla_${current}-Stable-Full_Package.tar.bz2
+tar xfvj ${INSTALLDIR}joomla.tar.bz2 -C ${INSTALLDIR}
+rm -f ${INSTALLDIR}joomla.tar.bz2
+</code></pre>
+    <p>scripts/joomla.sh</p>
+</section>
+<section>
+    <h2 class="noupper">Projekt einrichten</h2>
+    <p>Bild von der Ordner Struktu</p>
+    <img src="{{ site.baseurl }}/images/isis.png">
+</section>
+<section>
+    <h2>Joomla herunterladen</h2>
+</section>
+<section>
+    <h2>vhost einrichten</h2>
+</section>
+<section>
+    <h1>Joomla installieren und einrichten</h1>
+</section>
+<section>
+    <p>.htaccess, fehler anzeigen Entwicklung, Beitrags einstellungen anpassen, Menu Anpassen, JCE installieren, Akeeba installieren</p>
+</section>
+<section>
+    <h1>Server einrichten</h1>
+</section>
+<section>
+    Anforderungen
+</section>
+<section>
+    Externe Datenbank nur in der Entwicklung
+</section>
+<section>
+    Upload jpa datei und kickstart.php
+</section>
+<section>
+    Ordner Versionieren git gitignore htaccess schutz .git ordner und man könnte noch ein
+</section>
+<section>
+    Wie bekommen wir jetzt unsere Arbeiten von lokal auf den Server
+    ftp, git, buddy.work, github mit kickdeploy
+</section>
+<section>
+    mit git Vorteile Nachteile
+</section>
+<section>
+    Buddy Works deswegen die Ordnerstruktur mit SRC
+</section>
+<section>
+    Was haben wir jetzt für den Anfang Protostar welche Dateien werden geladen
+</section>
+<section>
+    <h1>Entwicklung</h1>
+</section>
+<section>
+    <h2>PHP Storm Gulp package.json </h2>
+</section>
+<section>
+    <h2>KickStarter Template</h2>
+    index.php
+    tpls
+    assets
+    favicon
+    sass
+    webpack
+    js
+    setup.sass
+</section>
+<section>Es werden unnötige Daten geladen CHROME Lighthouse</section>
+<section>kickcleanhead</section>
+<section>Wir wollen versuchen PageSpeed 100 zu erreichen</section>
+<section>Custom Fields Subtitle</section>
+<section>Nachteile weil Kategorie gebunden hat aber viele Vorteile</section>
+<section>Kickcck Galerie</section>
+<section>Images mit LazyLoad</section>
+<section>Live</section>
+<section>
+    <h2>Frontend Templates</h2>
+    <img src="{{ site.baseurl }}/images/frontend_templates.png">
+</section>
+<section>
+    <h2 class="noupper">Protostar</h2>
+    <img src="{{ site.baseurl }}/images/protostar.jpg">
+</section>

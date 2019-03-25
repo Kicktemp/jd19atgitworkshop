@@ -1,0 +1,27 @@
+{
+  "name": "presentation_blank",
+  "version": "1.0.0",
+  "description": "Presentation about creating a REVEAL.js Presentation with Jekyll ",
+  "main": "_site/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kicktemp/presentation_blank.git"
+  },
+  "author": "Niels Nübel <niels@kicktemp.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kicktemp/presentation_blank/issues"
+  },
+  "homepage": "https://github.com/kicktemp/presentation_blank#readme",
+  "dependencies": {
+    "chart.js": "^2.8.0",
+    "reveal.js": "^3.7.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-shell": "^0.7.0",
+    "lodash": "^4.17.11"
+  }
+}

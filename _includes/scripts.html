@@ -1,0 +1,70 @@
+<script src="{{ site.baseurl }}/assets/lib/js/head.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/reveal.js"></script>
+
+<script>
+
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    viewDistance: 2,
+    chart: {
+      defaults: {
+        global: {
+          title: {fontColor: "#FFF"},
+          legend: {
+            position: "bottom",
+            labels: {fontColor: "#FFF"},
+          },
+          tooltips: {
+            labels: {fontColor: "#FFF"},
+          },
+        },
+        scale: {
+          scaleLabel: {fontColor: "#FFF"},
+          gridLines: {color: "#FFF", zeroLineColor: "#FFF"},
+          ticks: {fontColor: "#FFF", min: 0, scale: 1},
+        }
+      },
+      line: {
+        borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"],
+        "borderDash": [[5, 10], [0, 0]]
+      },
+      bar: {backgroundColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"]},
+      pie: {backgroundColor: [["rgba(0,0,0,.8)", "rgba(220,20,20,.8)", "rgba(20,220,20,.8)", "rgba(220,220,20,.8)", "rgba(20,20,220,.8)"]]},
+      radar: {borderColor: ["rgba(20,220,220,.8)", "rgba(220,120,120,.8)", "rgba(20,120,220,.8)"]},
+    },
+
+    transition: 'fade',
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      {
+        src: '{{ site.baseurl }}/assets/lib/js/classList.js', condition: function () {
+        return !document.body.classList;
+      }
+      },
+      {
+        src: '{{ site.baseurl }}/assets/plugin/markdown/marked.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: '{{ site.baseurl }}/assets/plugin/markdown/markdown.js', condition: function () {
+        return !!document.querySelector('[data-markdown]');
+      }
+      },
+      {
+        src: '{{ site.baseurl }}/assets/plugin/highlight/highlight.js', async: true, callback: function () {
+        hljs.initHighlightingOnLoad();
+      }
+      },
+      {src: '{{ site.baseurl }}/assets/plugin/zoom-js/zoom.js', async: true},
+      {src: '{{ site.baseurl }}/assets/plugin/notes/notes.js', async: true},
+      {src: '{{ site.baseurl }}/assets/plugin/chart/Chart.min.js'},
+      {src: '{{ site.baseurl }}/assets/js/highlightfragment.js', async: true}
+    ]
+  });
+</script>

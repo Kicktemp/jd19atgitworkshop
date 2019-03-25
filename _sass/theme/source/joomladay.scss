@@ -1,0 +1,123 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url("//hello.myfonts.net/count/37b67a");
+@font-face {font-family: 'RedRing-Regular';src: url('webfonts/37B67A_0_0.eot');src: url('webfonts/37B67A_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37B67A_0_0.woff2') format('woff2'),url('webfonts/37B67A_0_0.woff') format('woff'),url('webfonts/37B67A_0_0.ttf') format('truetype');}
+@font-face {font-family: 'RedRing-Black';src: url('webfonts/37B67A_1_0.eot');src: url('webfonts/37B67A_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37B67A_1_0.woff2') format('woff2'),url('webfonts/37B67A_1_0.woff') format('woff'),url('webfonts/37B67A_1_0.ttf') format('truetype');}
+@font-face {font-family: 'RedRing-Bold';src: url('webfonts/37B67A_2_0.eot');src: url('webfonts/37B67A_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37B67A_2_0.woff2') format('woff2'),url('webfonts/37B67A_2_0.woff') format('woff'),url('webfonts/37B67A_2_0.ttf') format('truetype');}
+@font-face {font-family: 'RedRing-Light';src: url('webfonts/37B67A_3_0.eot');src: url('webfonts/37B67A_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37B67A_3_0.woff2') format('woff2'),url('webfonts/37B67A_3_0.woff') format('woff'),url('webfonts/37B67A_3_0.ttf') format('truetype');}
+@font-face {font-family: 'RedRing-Medium';src: url('webfonts/37B67A_4_0.eot');src: url('webfonts/37B67A_4_0.eot?#iefix') format('embedded-opentype'),url('webfonts/37B67A_4_0.woff2') format('woff2'),url('webfonts/37B67A_4_0.woff') format('woff'),url('webfonts/37B67A_4_0.ttf') format('truetype');}
+@import url(../../assets/lib/font/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$defaultbg: #222;
+$leipzig: #189eff;
+
+$joomlayellow: #f6b332;
+$joomlared: #f6303e;
+$joomlablue: #318dde;
+$joomlagreen: #76bd1d;
+$backgroundColor: $leipzig;
+
+$mainColor: #fff;
+$headingColor: #fff;
+
+$mainFontSize: 38px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'RedRing-Bold', Helvetica, sans-serif;
+$headingTextShadow: 0px 2px 3px #555;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 400;
+$linkColor: #000;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+/*section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}*/
+section.shadow {
+  &, h1, h2, h3, h4, h5, h6 {
+    text-shadow: $headingTextShadow;
+  }
+}
+
+.noupper {
+  text-transform: none !important;
+}
+
+html.joomlared body {background-color: $joomlared;}
+html.joomlablue body {background-color: $joomlablue;}
+html.joomlayellow body {background-color: $joomlayellow;}
+html.joomlagreen body {background-color: $joomlagreen;}
+
+html.animationgif .reveal .slide-background
+{
+  background-size: contain !important;
+}
+
+[data-inline] .inline { &, * { color: deepskyblue; }}
+[data-inline] .inline.red { &, * { color: red; }}
+
+[data-fragment] .highlight-green.visible { &, * { color: #17ff2e; }}
+[data-fragment] .highlight-current-green.current-fragment { &, * { color: #17ff2e; }}
+[data-fragment] .highlight-red.visible { &, * { color: #ff2c2d; }}
+[data-fragment] .highlight-current-red.current-fragment { &, * { color: #ff2c2d !important; }}
+[data-fragment] .highlight-blue.visible { &, * { color: #1b91ff; }}
+[data-fragment] .highlight-current-highlight-blue.current-fragment { &, * { color: #1b91ff; }}
+[data-fragment] {
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  .grow
+  { display: inline-block; }
+}
+
+.slide-background {
+  &.overlay-dark20:before,
+  &.overlay-dark30:before,
+  &.overlay-dark40:before,
+  &.overlay-dark50:before,
+  &.overlay-dark60:before,
+  &.overlay-dark70:before,
+  &.overlay-dark80:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+  }
+
+  &.overlay-dark20:before {background-color: rgba(34,34,34,0.2)}
+  &.overlay-dark30:before {background-color: rgba(34,34,34,0.3)}
+  &.overlay-dark40:before {background-color: rgba(34,34,34,0.4)}
+  &.overlay-dark50:before {background-color: rgba(34,34,34,0.5)}
+  &.overlay-dark60:before {background-color: rgba(34,34,34,0.6)}
+  &.overlay-dark70:before {background-color: rgba(34,34,34,0.7)}
+  &.overlay-dark80:before {background-color: rgba(34,34,34,0.8)}
+}
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
