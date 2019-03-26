@@ -1,0 +1,288 @@
+<section>
+    <h1 class="noupper">Warum Git?</h1>
+    <ul>
+        <li>April 2005</li>
+        <li>Linus Torvalds</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Warum Git?</h1>
+    <ul>
+        <li>April 2005</li>
+        <li>Linus Torvalds</li>
+        <li>Arbeiten mit Branches</li>
+        <li>Flexibilität in den Workflows</li>
+        <li>Contribution</li>
+        <li>Nachvollziehbare Herkunft von Sourcecode</li>
+        <li>Performance</li>
+        <li>Robust gegen Fehler und Angriffe</li>
+        <li>Offline- und Multisite-Entwicklung</li>
+        <li>Administrierbarkeit</li>
+        <li>Starke Open-Source-Community</li>
+        <li>Erweiterbarkeit:</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Zentrale Versionsverwaltung</h1>
+    <img src="{{ site.baseurl }}/images/zentraleversionierung.jpg" height="300">
+    <aside class="notes">
+        zeigt die typische Aufteilung einer zentralen Versionsverwaltung,
+        z. B. von CVS oder Subversion. Jeder Entwickler hat auf
+        seinem Rechner ein Arbeitsverzeichnis (Workspace) mit allen Projektdateien.
+        Diese bearbeitet er und schickt die Änderungen regelmäßig per
+        Commit an den zentralen Server. Per Update holt er die Änderungen der anderen Entwickler ab. Der zentrale Server speichert die aktuellen
+        und historischen Versionen der Dateien (Repository). Parallele Entwicklungsstränge
+        (Branches) und benannte Versionen (Tags) werden
+        auch zentral verwaltet.
+    </aside>
+</section>
+<section>
+    <h1 class="noupper">Dezentrale Versionsverwaltung</h1>
+    <img src="{{ site.baseurl }}/images/Dezentrale.jpg" height="300">
+    <aside class="notes">
+        zeigt die typische Aufteilung einer zentralen Versionsverwaltung,
+        z. B. von CVS oder Subversion. Jeder Entwickler hat auf
+        seinem Rechner ein Arbeitsverzeichnis (Workspace) mit allen Projektdateien.
+        Diese bearbeitet er und schickt die Änderungen regelmäßig per
+        Commit an den zentralen Server. Per Update holt er die Änderungen der anderen Entwickler ab. Der zentrale Server speichert die aktuellen
+        und historischen Versionen der Dateien (Repository). Parallele Entwicklungsstränge
+        (Branches) und benannte Versionen (Tags) werden
+        auch zentral verwaltet.
+    </aside>
+</section>
+<section>
+    <h1 class="noupper">Repository Arten</h1>
+    <ul>
+        <li>Blessed</li>
+        <li>Shared</li>
+        <li>Workflow</li>
+        <li>Fork</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Vorteile</h1>
+    <ul>
+        <li>Hohe Performance</li>
+        <li>Effiziente Arbeitsweisen</li>
+        <li>Offline-Fähigkeit</li>
+        <li>Flexibilität der Entwicklungsprozesse</li>
+        <li>Backup</li>
+        <li>Wartbarkeit</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Das Repository</h1>
+    <h2 class="noupper">die Grundlage dezentralen Arbeitens</h2>
+    <p>Das Repository ist im Kern ein effizienter Datenspeicher. Im Wesentlichen enthält es:</p>
+    <ul>
+        <li>Inhalte von Dateien (Blobs)</li>
+        <li>Verzeichnisse (Trees)</li>
+        <li>Versionen (Commits)</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Das Repository</h1>
+    <img src="{{ site.baseurl }}/images/repository.jpg" height="300" style="floar:right;">
+</section>
+<section>
+    <h1 class="noupper">hexadezimaler Hashwert</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+           1632acb65b01c6b621d6e1105205773931bb1a41.
+    </code></pre>
+    <aside class="notes">
+        Diese Hashwerte dienen als Referenz
+        zwischen den Objekten und als Schlüssel, um die Daten später
+        wiederzufinden
+    </aside>
+</section>
+<section>
+    <h1 class="noupper">Vorteile Hashwert</h1>
+    <ul>
+        <li>Hohe Performance</li>
+        <li>Redundanzfreie Speicherung</li>
+        <li>Dezentrale Versionsnummern</li>
+        <li>Effizienter Abgleich zwischen Repositorys</li>
+        <li>Integrität der Daten</li>
+        <li>Automatische Erkennung von Umbenennungen</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Branching und Merging</h1>
+    <ul style="list-style: none">
+        <li>Verzweigen (Branching)</li>
+        <li>Branches entstehen durch paralleles Arbeiten.</li>
+        <li>Zusammenzuführen (Merging)</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">ungeplante Verzweigung</h1>
+    <img src="{{ site.baseurl }}/images/ungeplanteVerzweigung.jpg" height="300">
+</section>
+<section>
+    <h1 class="noupper">Explizite Branches</h1>
+    <img src="{{ site.baseurl }}/images/Explizite.jpg" height="300">
+</section>
+<section>
+    <h1 class="noupper">Zusammenfassung</h1>
+</section>
+<section>
+    <h1 class="noupper">Git installieren</h1>
+    <a href="http://git-scm.com/download">http://git-scm.com/download</a>
+</section>
+<section>
+    <h1 class="noupper">Windows-User</h1>
+    <p>Git-Bash</p>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+> git com< TAB>
+> git commit
+
+> git c< TAB>< TAB>
+checkout    cherry  cherry-pick     citool
+clean       clone   commit          config
+
+> git commit --a< TAB>< TAB>
+--all   --amend     --author=</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Git einrichten</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+> git config --global user.name hmustermann
+> git config --global user.email "hans@mustermann.de"
+    </code></pre>
+</section>
+<section>
+    <h1 class="noupper">Lieblingstexteditor</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+> git config --global core.editor vim           # VI improved
+> git config --global core.editor "atom --wait" # Atom editor
+> git config --global core.editor notepad       # Windows notepad
+    </code></pre>
+</section>
+<section>
+    <h1 class="noupper">Git init</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+            $ git init
+    </code></pre>
+    <canvas id="git1"></canvas>
+    <script type="text/javascript">
+            var config = {
+                template: graphConfig,
+                mode: "extended",
+                orientation: "horizontal",
+                elementId: "git1",
+            };
+
+            var gitgraph = new GitGraph(config);
+
+            var master = gitgraph.branch({
+                name: "master",
+                column: featureCol
+            });
+
+            master.commit("Initial commit");
+    </script>
+</section>
+<section>Projekt Folder</section>
+<section>Repository anlegen</section>
+<section>.git Folder</section>
+<section>.erster Commit</section>
+<section>status abfragen</section>
+
+<section>
+    <h1 class="noupper">.htacces</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+            $ git init
+    </code></pre>
+    <canvas id="gitGraph"></canvas>
+    <script type="text/javascript">
+        var config = {
+            template: graphConfig,
+            mode: "extended",
+            orientation: "horizontal",
+            elementId: "gitGraph",
+        };
+
+        var gitgraph = new GitGraph(config);
+
+        var master = gitgraph.branch({
+            name: "master",
+            column: masterCol
+        });
+
+        master.commit("Initial commit");
+
+        var develop = gitgraph.branch({
+            parentBranch: master,
+            name: "develop",
+            column: developCol
+        });
+
+        master.commit({
+            messageDisplay: false
+        });
+
+        develop.commit({
+            messageDisplay: false
+        });
+
+        var feature1 = gitgraph.branch({
+            parentBranch: develop,
+            name: "feature/1",
+            column: featureCol
+        });
+        feature1.commit("A feature to go into v1.0.0").commit({
+            messageDisplay: false
+        });
+        feature1.merge(develop);
+
+        var feature2 = gitgraph.branch({
+            parentBranch: develop,
+            name: "feature/2",
+            column: featureCol
+        });
+        feature2.commit("Another feature to go into v1.0.0").commit({
+            messageDisplay: false
+        });
+        feature2.merge(develop);
+
+        var release_100 = gitgraph.branch({
+            parentBranch: develop,
+            name: "release/v1.0.0",
+            column: releaseCol
+        });
+        release_100.commit({
+            message: "Start v1.0.0-rc Release Candidate builds",
+            tag: "v1.0.0-rc",
+            tagColor: "gray"
+        });
+
+        develop.commit({
+            messageDisplay: false
+        });
+        release_100.commit(stabilizationCommit);
+        release_100.merge(master, {
+            dotStrokeWidth: 10,
+            message: "Release v1.0.0 tagged",
+            tag: "v1.0.0"
+        });
+        master.merge(develop);
+
+        var support_10x = gitgraph.branch({
+            parentBranch: master,
+            name: "support/v1.0.x",
+            column: supportCol
+        });
+
+        support_10x
+            .commit({
+                message: "Start v1.0.1-rc Release Candidate builds",
+                tag: "v1.0.1-rc",
+                tagColor: "gray"
+            })
+            .commit(bugFixCommit);
+        develop.commit({
+            messageDisplay: false
+        });
+    </script>
+</section>
+

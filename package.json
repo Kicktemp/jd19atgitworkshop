@@ -15,6 +15,7 @@
   "homepage": "https://github.com/kicktemp/presentation_blank#readme",
   "dependencies": {
     "chart.js": "^2.8.0",
+    "gitgraph.js": "^1.15.1",
     "reveal.js": "^3.7.0"
   },
   "devDependencies": {

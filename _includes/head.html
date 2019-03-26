@@ -24,10 +24,71 @@
             document.getElementsByTagName( 'head' )[0].appendChild( link );
         </script>
 
-        <!--[if lt IE 9]>
+        <script src="{{ "assets/js/gitgraph.min.js" | prepend: site.baseurl }}"></script>
+
+        <!--[if lt IE 9] -->
         <script src="{{ "assets/lib/js/html5shiv.js" | prepend: site.baseurl }}"></script>
         <![endif]-->
 
         <script src="https://use.typekit.net/nhn0syu.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+            <script type="text/javascript">
+                    var graphConfig = new GitGraph.Template({
+                            colors: ["#9993FF", "#47E8D4", "#6BDB52", "#F85BB5", "#FFA657", "#F85BB5"],
+                            branch: {
+                                    color: "#000000",
+                                    lineWidth: 3,
+                                    spacingX: 60,
+                                    mergeStyle: "straight",
+                                    showLabel: true, // display branch names on graph
+                                    labelFont: "normal 14pt Arial",
+                                    labelRotation: 0
+                            },
+                            commit: {
+                                    spacingY: -30,
+                                    dot: {
+                                            size: 8,
+                                            strokeColor: "#000000",
+                                            strokeWidth: 4
+                                    },
+                                    tag: {
+                                            font: "normal 10pt Arial",
+                                            color: "yellow"
+                                    },
+                                    message: {
+                                            color: "black",
+                                            font: "normal 12pt Arial",
+                                            displayAuthor: false,
+                                            displayBranch: false,
+                                            displayHash: false
+                                    }
+                            },
+                            arrow: {
+                                    size: 8,
+                                    offset: 3
+                            }
+                    });
+                    var bugFixCommit = {
+                            messageAuthorDisplay: false,
+                            messageBranchDisplay: false,
+                            messageHashDisplay: false,
+                            message: "Bug fix commit(s)"
+                    };
+
+                    var stabilizationCommit = {
+                            messageAuthorDisplay: false,
+                            messageBranchDisplay: false,
+                            messageHashDisplay: false,
+                            message: "Release stabilization commit(s)"
+                    };
+
+                    // You can manually fix columns to control the display.
+                    var featureCol = 0;
+                    var developCol = 1;
+                    var releaseCol = 2;
+                    var supportCol = 3;
+                    var support2Col = 5;
+                    var masterCol = 4;
+            </script>
     </head>
