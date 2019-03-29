@@ -1,97 +1,128 @@
-<section data-transition="none">
+<section>
+    <h1 class="noupper">Git init</h1>
     <pre class=""><code class="hljs bash" data-trim data-fragment>
-#!/bin/bash
+            $ git init
+    </code></pre>
+    <canvas id="git1"></canvas>
+    <script type="text/javascript">
+        var config = {
+            template: graphConfig,
+            mode: "extended",
+            orientation: "horizontal",
+            elementId: "git1",
+        };
 
-SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
-INSTALLDIR=$SCRIPTPATH/../dist/
+        var gitgraph = new GitGraph(config);
 
-if [ ! -d INSTALLDIR ]; then
- mkdir -p ${INSTALLDIR}
-fi
+        var master = gitgraph.branch({
+            name: "master",
+            column: featureCol
+        });
 
-current="$(curl -fsSL 'https://downloads.joomla.org/api/v1/latest/cms' | jq -r '.branches[3].version')"
+        master.commit("Initial commit");
+    </script>
+</section>
+<section>Projekt Folder</section>
+<section>Repository anlegen</section>
+<section>.git Folder</section>
+<section>.erster Commit</section>
+<section>status abfragen</section>
 
-curl -o ${INSTALLDIR}joomla.tar.bz2 -SL https://github.com/joomla/joomla-cms/releases/download/${current}/Joomla_${current}-Stable-Full_Package.tar.bz2
-tar xfvj ${INSTALLDIR}joomla.tar.bz2 -C ${INSTALLDIR}
-rm -f ${INSTALLDIR}joomla.tar.bz2
-</code></pre>
-    <p>scripts/joomla.sh</p>
-</section>
 <section>
-    <h2 class="noupper">Projekt einrichten</h2>
-    <p>Bild von der Ordner Struktu</p>
-    <img src="{{ site.baseurl }}/images/isis.png">
+    <h1 class="noupper">.htacces</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+            $ git init
+    </code></pre>
+    <canvas id="gitGraph"></canvas>
+    <script type="text/javascript">
+        var config = {
+            template: graphConfig,
+            mode: "extended",
+            orientation: "horizontal",
+            elementId: "gitGraph",
+        };
+
+        var gitgraph = new GitGraph(config);
+
+        var master = gitgraph.branch({
+            name: "master",
+            column: masterCol
+        });
+
+        master.commit("Initial commit");
+
+        var develop = gitgraph.branch({
+            parentBranch: master,
+            name: "develop",
+            column: developCol
+        });
+
+        master.commit({
+            messageDisplay: false
+        });
+
+        develop.commit({
+            messageDisplay: false
+        });
+
+        var feature1 = gitgraph.branch({
+            parentBranch: develop,
+            name: "feature/1",
+            column: featureCol
+        });
+        feature1.commit("A feature to go into v1.0.0").commit({
+            messageDisplay: false
+        });
+        feature1.merge(develop);
+
+        var feature2 = gitgraph.branch({
+            parentBranch: develop,
+            name: "feature/2",
+            column: featureCol
+        });
+        feature2.commit("Another feature to go into v1.0.0").commit({
+            messageDisplay: false
+        });
+        feature2.merge(develop);
+
+        var release_100 = gitgraph.branch({
+            parentBranch: develop,
+            name: "release/v1.0.0",
+            column: releaseCol
+        });
+        release_100.commit({
+            message: "Start v1.0.0-rc Release Candidate builds",
+            tag: "v1.0.0-rc",
+            tagColor: "gray"
+        });
+
+        develop.commit({
+            messageDisplay: false
+        });
+        release_100.commit(stabilizationCommit);
+        release_100.merge(master, {
+            dotStrokeWidth: 10,
+            message: "Release v1.0.0 tagged",
+            tag: "v1.0.0"
+        });
+        master.merge(develop);
+
+        var support_10x = gitgraph.branch({
+            parentBranch: master,
+            name: "support/v1.0.x",
+            column: supportCol
+        });
+
+        support_10x
+            .commit({
+                message: "Start v1.0.1-rc Release Candidate builds",
+                tag: "v1.0.1-rc",
+                tagColor: "gray"
+            })
+            .commit(bugFixCommit);
+        develop.commit({
+            messageDisplay: false
+        });
+    </script>
 </section>
-<section>
-    <h2>Joomla herunterladen</h2>
-</section>
-<section>
-    <h2>vhost einrichten</h2>
-</section>
-<section>
-    <h1>Joomla installieren und einrichten</h1>
-</section>
-<section>
-    <p>.htaccess, fehler anzeigen Entwicklung, Beitrags einstellungen anpassen, Menu Anpassen, JCE installieren, Akeeba installieren</p>
-</section>
-<section>
-    <h1>Server einrichten</h1>
-</section>
-<section>
-    Anforderungen
-</section>
-<section>
-    Externe Datenbank nur in der Entwicklung
-</section>
-<section>
-    Upload jpa datei und kickstart.php
-</section>
-<section>
-    Ordner Versionieren git gitignore htaccess schutz .git ordner und man könnte noch ein
-</section>
-<section>
-    Wie bekommen wir jetzt unsere Arbeiten von lokal auf den Server
-    ftp, git, buddy.work, github mit kickdeploy
-</section>
-<section>
-    mit git Vorteile Nachteile
-</section>
-<section>
-    Buddy Works deswegen die Ordnerstruktur mit SRC
-</section>
-<section>
-    Was haben wir jetzt für den Anfang Protostar welche Dateien werden geladen
-</section>
-<section>
-    <h1>Entwicklung</h1>
-</section>
-<section>
-    <h2>PHP Storm Gulp package.json </h2>
-</section>
-<section>
-    <h2>KickStarter Template</h2>
-    index.php
-    tpls
-    assets
-    favicon
-    sass
-    webpack
-    js
-    setup.sass
-</section>
-<section>Es werden unnötige Daten geladen CHROME Lighthouse</section>
-<section>kickcleanhead</section>
-<section>Wir wollen versuchen PageSpeed 100 zu erreichen</section>
-<section>Custom Fields Subtitle</section>
-<section>Nachteile weil Kategorie gebunden hat aber viele Vorteile</section>
-<section>Kickcck Galerie</section>
-<section>Images mit LazyLoad</section>
-<section>Live</section>
-<section>
-    <h2>Frontend Templates</h2>
-    <img src="{{ site.baseurl }}/images/frontend_templates.png">
-</section>
-<section>
-    <h2 class="noupper">Protostar</h2>
-    <img src="{{ site.baseurl }}/images/protostar.jpg">
-</section>
+

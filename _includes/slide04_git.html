@@ -4,12 +4,19 @@
         <li>April 2005</li>
         <li>Linus Torvalds</li>
     </ul>
+    <aside class="notes">
+        Git hat eine rasante Erfolgsgeschichte hinter sich. Im April 2005 begann
+        Linus Torvalds, Git zu implementieren, weil er keinen Gefallen an den
+        damals verfügbaren Open-Source-Versionsverwaltungen fand. Heute,
+        im Herbst 2016, liefert Google Millionen von Suchtreffern, wenn man
+        nach »git version control« sucht. Für neue Open-Source-Projekte ist es
+        zum Standard geworden, und viele große Open-Source-Projekte sind zu
+        Git migriert.
+    </aside>
 </section>
 <section>
     <h1 class="noupper">Warum Git?</h1>
     <ul>
-        <li>April 2005</li>
-        <li>Linus Torvalds</li>
         <li>Arbeiten mit Branches</li>
         <li>Flexibilität in den Workflows</li>
         <li>Contribution</li>
@@ -19,8 +26,75 @@
         <li>Offline- und Multisite-Entwicklung</li>
         <li>Administrierbarkeit</li>
         <li>Starke Open-Source-Community</li>
-        <li>Erweiterbarkeit:</li>
+        <li>Erweiterbarkeit</li>
     </ul>
+    <aside class="notes">
+        Arbeiten mit Branches: Wenn viele Entwickler gemeinsam an einer
+        Software arbeiten, entstehen parallele Entwicklungsstränge, die immer
+        wieder auseinanderlaufen und zusammengeführt werden müssen.
+        Genau dafür ist Git entwickelt worden. Es bietet daher umfassende
+        Unterstützung zum Branchen, Mergen, Rebasen und Cherry-
+        Picken.
+        Flexibilität in den Workflows: Manche sagen, dass Git im Grunde gar
+        keine Versionsverwaltung sei, sondern ein Baukasten, aus dem sich
+        jeder seine eigene Versionsverwaltung zusammensetzen kann. Git
+        ist außergewöhnlich flexibel. Ein einzelner Entwickler kann es für
+        sich allein nutzen, agile Teams finden leichtgewichtige Arbeitsweisen
+        damit, aber auch große internationale Projekte mit zahlreichen
+        Entwicklern an mehreren Standorten können passende Workflows
+        entwickeln.
+        Contribution: Die meisten Open-Source-Projekte existieren durch freiwillige
+        Beiträge von Entwicklern. Es ist wichtig, das Beitragen so
+        einfach wie nur möglich zu machen. Bei zentralen Versionsverwaltungen
+        wird dies oft erschwert, weil man nicht jedem schreibenden
+        Zugriff auf das Repository geben möchte. Jeder kann ein Git-
+        Repository klonen, damit vollwertig arbeiten und dann später die
+        Änderungen weitergeben (»Mit Forks entwickeln« (Seite 163)).
+        Nachvollziehbare Herkunft von Sourcecode: Die Entwickler von Git
+        haben es als Content Tracker bezeichnet. Damit meinen sie ein
+        Werkzeug, das die Herkunft von Inhalten, insbesondere Source
+        code, aufzeigen kann. Git kann dies selbst dann, wenn Code zusammengeführt
+        wurde (Merge) oder Dateien verschoben und umbenannt
+        wurden. Sogar kopierte Codeabschnitte können erkannt
+        und zugeordnet werden.
+        Performance: Auch bei Projekten mit vielen Dateien und langen Historien
+        bleibt Git schnell. In weniger als einer halben Minute wechselt
+        es zum Beispiel von der aktuellen Version auf eine sechs Jahre
+        ältere Version der Linux-Kernel-Sourcen – auf einem kleinen
+        MacBook Air. Das kann sich sehen lassen, wenn man bedenkt,
+        dass über 200.000 Commits und 40.000 veränderte Dateien dazwischenliegen.
+        Robust gegen Fehler und Angriffe: Da die Historie auf viele dezentrale
+        Repositorys verteilt wird, ist ein schwerwiegender Datenverlust
+        unwahrscheinlich. Eine genial simple Datenstruktur im Repository
+        sorgt dafür, dass die Daten auch in ferner Zukunft interpretierbar
+        bleiben. Der durchgängige Einsatz kryptografischer Prüfsummen
+        erschwert es Angreifern, Repositorys unbemerkt zu korrumpieren.
+        Offline- und Multisite-Entwicklung: Die dezentrale Architektur macht
+        es leicht, offline zu entwickeln, etwa unterwegs mit dem Laptop.
+        Bei der Entwicklung an mehreren Standorten ist weder ein zentraler
+        Server noch eine dauerhafte Netzwerkverbindung erforderlich.
+        Administrierbarkeit: Git ist einfach zu betreiben und zu administrieren.
+        Alle Daten und Konfigurationen werden in einfachen Dateien
+        gespeichert. Für Backups oder Umzüge genügen die Standardtools
+        des Betriebssystems. Es muss kein Git-spezifischer Dienst eingerichtet
+        werden. Alle Operationen werden durch Kommandozeilenbefehle
+        bereitgestellt. Repositorys werden meist über SSH oder HTTP
+        zugänglich gemacht, sodass man die Authentifizierung und Autorisierung
+        des Betriebssystems bzw. Webservers nutzen kann. Zahlreiche
+        mächtige Befehle erlauben es, das Repository zu manipulieren.
+        Die dezentrale Natur von Git macht es leicht, Änderungen zuerst
+        an einem Klon zu erproben, bevor man sie öffentlich macht.
+        Starke Open-Source-Community: Neben der detaillierten offiziellen
+        Dokumentation unterstützen zahlreiche Anleitungen, Foren, Wikis
+        etc. den Anwender. Es existiert ein Ökosystem aus Tools, Hosting-
+        Plattformen, Publikationen, Dienstleistern und Plug-ins für Entwicklungsumgebungen,
+        und es wächst stark.
+        Erweiterbarkeit: Git bietet neben komfortablen Befehlen für den Anwender
+        auch elementare Befehle, die einen direkteren Zugang zum
+        Repository erlauben. Dies macht Git sehr flexibel und ermöglicht
+        individuelle Anwendungen, die über das hinausgehen, was Git von
+        Haus aus bietet.
+    </aside>
 </section>
 <section>
     <h1 class="noupper">Zentrale Versionsverwaltung</h1>
@@ -58,6 +132,17 @@
         <li>Workflow</li>
         <li>Fork</li>
     </ul>
+    <aside class="notes">
+        Blessed Repository: Aus Ein Projekt aufsetzen diesem Repository werden die »offiziellen« Releases erstellt.
+
+        Shared Repository: Dieses Repository dient dem Austausch zwischen den Entwicklern im Team. In kleinen Projekten kann hierzu auch das Blessed Repository genutzt werden. Bei einer Multisite-Entwicklung kann es auch mehrere geben.
+
+        Workflow Repository: Ein solches Repository wird nur mit Änderungen befüllt, die einen bestimmten Status im Workflow erreicht haben, z. B. nach erfolgreichem Review.
+
+        Fork Repository: Dieses Repository dient der Entkopplung von der Entwicklungshauptlinie (zum Beispiel für große Umbauten, die nicht in den normalen Release-Zyklus passen) oder für experimentelle
+        Entwicklungen, die vielleicht nie in den Hauptstrang einfließen
+        sollen.
+    </aside>
 </section>
 <section>
     <h1 class="noupper">Vorteile</h1>
@@ -69,6 +154,25 @@
         <li>Backup</li>
         <li>Wartbarkeit</li>
     </ul>
+    <aside class="notes">
+        Hohe Performance: Fast alle Operationen werden ohne Netzwerkzugriff
+        lokal durchgeführt.
+        Effiziente Arbeitsweisen: Entwickler können lokale Branches benutzen,
+        um schnell zwischen verschiedenen Aufgaben zu wechseln.
+        Offline-Fähigkeit: Entwickler können ohne Serververbindung Commits
+        durchführen, Branches anlegen, Versionen taggen etc. und diese
+        erst später übertragen.
+        Flexibilität der Entwicklungsprozesse: In Teams und Unternehmen
+        können spezielle Repositorys angelegt werden, um mit anderen Abteilungen,
+        z. B. den Testern, zu kommunizieren. Änderungen werden
+        einfach durch ein Push in dieses Repository freigegeben.
+        Backup: Jeder Entwickler hat eine Kopie des Repositorys mit einer
+        vollständigen Historie. Somit ist die Wahrscheinlichkeit minimal,
+        durch einen Serverausfall Daten zu verlieren.
+        Wartbarkeit: Knifflige Umstrukturierungen kann man zunächst auf einer
+        Kopie des Repositorys erproben, bevor man sie in das Original-
+        Repository überträgt.
+    </aside>
 </section>
 <section>
     <h1 class="noupper">Das Repository</h1>
@@ -82,7 +186,7 @@
 </section>
 <section>
     <h1 class="noupper">Das Repository</h1>
-    <img src="{{ site.baseurl }}/images/repository.jpg" height="300" style="floar:right;">
+    <img src="{{ site.baseurl }}/images/repository.jpg" height="300">
 </section>
 <section>
     <h1 class="noupper">hexadezimaler Hashwert</h1>
@@ -158,131 +262,3 @@ clean       clone   commit          config
 > git config --global core.editor notepad       # Windows notepad
     </code></pre>
 </section>
-<section>
-    <h1 class="noupper">Git init</h1>
-    <pre class=""><code class="hljs bash" data-trim data-fragment>
-            $ git init
-    </code></pre>
-    <canvas id="git1"></canvas>
-    <script type="text/javascript">
-            var config = {
-                template: graphConfig,
-                mode: "extended",
-                orientation: "horizontal",
-                elementId: "git1",
-            };
-
-            var gitgraph = new GitGraph(config);
-
-            var master = gitgraph.branch({
-                name: "master",
-                column: featureCol
-            });
-
-            master.commit("Initial commit");
-    </script>
-</section>
-<section>Projekt Folder</section>
-<section>Repository anlegen</section>
-<section>.git Folder</section>
-<section>.erster Commit</section>
-<section>status abfragen</section>
-
-<section>
-    <h1 class="noupper">.htacces</h1>
-    <pre class=""><code class="hljs bash" data-trim data-fragment>
-            $ git init
-    </code></pre>
-    <canvas id="gitGraph"></canvas>
-    <script type="text/javascript">
-        var config = {
-            template: graphConfig,
-            mode: "extended",
-            orientation: "horizontal",
-            elementId: "gitGraph",
-        };
-
-        var gitgraph = new GitGraph(config);
-
-        var master = gitgraph.branch({
-            name: "master",
-            column: masterCol
-        });
-
-        master.commit("Initial commit");
-
-        var develop = gitgraph.branch({
-            parentBranch: master,
-            name: "develop",
-            column: developCol
-        });
-
-        master.commit({
-            messageDisplay: false
-        });
-
-        develop.commit({
-            messageDisplay: false
-        });
-
-        var feature1 = gitgraph.branch({
-            parentBranch: develop,
-            name: "feature/1",
-            column: featureCol
-        });
-        feature1.commit("A feature to go into v1.0.0").commit({
-            messageDisplay: false
-        });
-        feature1.merge(develop);
-
-        var feature2 = gitgraph.branch({
-            parentBranch: develop,
-            name: "feature/2",
-            column: featureCol
-        });
-        feature2.commit("Another feature to go into v1.0.0").commit({
-            messageDisplay: false
-        });
-        feature2.merge(develop);
-
-        var release_100 = gitgraph.branch({
-            parentBranch: develop,
-            name: "release/v1.0.0",
-            column: releaseCol
-        });
-        release_100.commit({
-            message: "Start v1.0.0-rc Release Candidate builds",
-            tag: "v1.0.0-rc",
-            tagColor: "gray"
-        });
-
-        develop.commit({
-            messageDisplay: false
-        });
-        release_100.commit(stabilizationCommit);
-        release_100.merge(master, {
-            dotStrokeWidth: 10,
-            message: "Release v1.0.0 tagged",
-            tag: "v1.0.0"
-        });
-        master.merge(develop);
-
-        var support_10x = gitgraph.branch({
-            parentBranch: master,
-            name: "support/v1.0.x",
-            column: supportCol
-        });
-
-        support_10x
-            .commit({
-                message: "Start v1.0.1-rc Release Candidate builds",
-                tag: "v1.0.1-rc",
-                tagColor: "gray"
-            })
-            .commit(bugFixCommit);
-        develop.commit({
-            messageDisplay: false
-        });
-    </script>
-</section>
-

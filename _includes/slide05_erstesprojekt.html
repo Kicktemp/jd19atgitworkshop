@@ -1,0 +1,156 @@
+<section>
+<h1 class="noupper">Unser erstes Projekt</h1>
+<pre class=""><code class="hljs bash" data-trim data-fragment>
+    mkdir gitprojekte
+    cd gitprojekte
+    mkdir erste-Schritte
+    cd erste-Schritte
+    touch bar.txt
+    touch foo.txt
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Ergebnis</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+gitprojekte
+└── erste-schritte
+    ├── bar.txt
+    └── foo.txt
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Unser erstes Repository</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+        git <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="2">init</mark></mark>
+        <mark class="fragment" data-fragment-index="3">Leeres Git-Repository in ~/gitprojekte/erste-schritte/.git/ initialisiert</mark>
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">.git unser Repository</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+gitprojekte
+└── erste-schritte
+    ├── <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="2">.git</mark></mark>
+    ├── bar.txt
+    └── foo.txt
+</code></pre>
+    <p class="fragment" data-fragment-index="2">Hier legt Git die Historie des Projektes ab.</p>
+</section>
+<section>
+    <h1 class="noupper">Das erste Commit</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+        git <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="1">add</mark></mark> <mark class="fragment" data-fragment-index="2"><mark class="fragment highlight-green" data-fragment-index="2">bar.txt foo.txt</mark></mark>
+        <mark class="fragment" data-fragment-index="3">git <mark class="fragment highlight-blue" data-fragment-index="3">commit</mark></mark> <mark class="fragment" data-fragment-index="4"><mark class="fragment highlight-red" data-fragment-index="4">--message</mark></mark> <mark class="fragment" data-fragment-index="5"><mark class="fragment highlight-green" data-fragment-index="5">"init"</mark></mark>
+</code></pre>
+    <p style="text-align: left" class="fragment" data-fragment-index="1">add-Befehl bestimmt welche Dateien in das nächste Commit aufgenommen werden </p>
+    <p style="text-align: left" class="fragment" data-fragment-index="2">Unsere Dateien</p>
+</section>
+<section>
+    <h1 class="noupper">Das erste Commit</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+[<mark class="fragment highlight-blue" data-fragment-index="0">master</mark> (Basis-Commit) <mark class="fragment highlight-blue" data-fragment-index="1">6cc5776</mark>] <mark class="fragment highlight-green" data-fragment-index="2">init</mark>
+2 files changed, 0 insertions(+), 0 deletions(-)
+create mode 100644 bar.txt
+create mode 100644 foo.txt
+</code></pre>
+    <p style="text-align: left" class="fragment" data-fragment-index="0">Branch</p>
+    <p style="text-align: left" class="fragment" data-fragment-index="1">Hashwert</p>
+    <p style="text-align: left" class="fragment" data-fragment-index="2">Commit Message</p>
+</section>
+<section>
+    <h1 class="noupper">Status</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+rm -f bar.txt
+touch bar.html
+vi foo.txt
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Status abfragen</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+git <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="1">status</mark></mark>
+<mark class="fragment" data-fragment-index="2">Auf Branch master
+Änderungen, die nicht zum Commit vorgemerkt sind:
+  (benutzen Sie "git add/rm < Datei>...", um die Änderungen zum Commit vorzumerken)
+  (benutzen Sie "git checkout -- < Datei>...", um die Änderungen im Arbeitsverzeichnis zu verwerfen)
+
+    <mark class="fragment highlight-red" data-fragment-index="3">gelöscht:       bar.txt</mark>
+    <mark class="fragment highlight-red" data-fragment-index="3">geändert:       foo.txt</mark>
+
+Unversionierte Dateien:
+  (benutzen Sie "git add < Datei>...", um die Änderungen zum Commit vorzumerken)
+
+    <mark class="fragment highlight-red" data-fragment-index="3">bar.html</mark>
+
+    keine Änderungen zum Commit vorgemerkt (benutzen Sie "git add" und/oder "git commit -a")</mark>
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Status</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+git diff foo.txt
+
+diff --git a/foo.txt b/foo.txt
+index e69de29..345e6ae 100644
+--- a/foo.txt
++++ b/foo.txt
+@@ -0,0 +1 @@
++Test
+</code></pre>
+    <p>Mit Q kommt ihr wieder raus.</p>
+</section>
+<section>
+    <h1 class="noupper">Paradox git add</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+        git <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="1">add</mark></mark> <mark class="fragment" data-fragment-index="2"><mark class="fragment highlight-green" data-fragment-index="2">foo.txt bar.html <mark class="fragment highlight-red" data-fragment-index="3">bar.txt</mark></mark></mark>
+</code></pre>
+    <p style="text-align: left" class="fragment" data-fragment-index="3">Egal ob
+        eine Datei bearbeitet, hinzugefügt oder gelöscht wurde, mit dem add-
+        Befehl bestimmt man, dass die Änderung übernommen werden soll.</p>
+</section>
+<section>
+    <h1 class="noupper">Status abfragen</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+git status
+<mark class="fragment" data-fragment-index="2">Auf Branch master
+Zum Commit vorgemerkte Änderungen:
+  (benutzen Sie "git reset HEAD < Datei>..." zum Entfernen aus der Staging-Area)
+
+	neue Datei:     bar.html
+	gelöscht:       bar.txt
+	geändert:       foo.txt</mark>
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">Das zweite Commit</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+git commit --message "Einiges geändert."
+
+[master a7f3ece] Einiges geändert.
+ 3 files changed, 2 insertions(+), 2 deletions(-)
+ create mode 100644 bar.html
+ delete mode 100644 bar.txt
+</code></pre>
+</section>
+
+<section>
+    <h1 class="noupper">Historie betrachten</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+git log
+
+commit a7f3ece79d5f38a13f64355bb195f5c5861e3747 (HEAD -> master)
+Author: Niels Nübel < niels@kicktemp.com>
+Date:   Wed Mar 27 11:25:25 2019 +0100
+
+    Einiges geändert.
+
+commit 6cc5776005924cc841955333169831cb95af3d1f
+Author: Niels Nübel < niels@kicktemp.com>
+Date:   Wed Mar 27 11:20:20 2019 +0100
+
+    init
+</code></pre>
+<p>Der log-Befehl zeigt die Historie des Projekts. Die Commits sind chronologisch
+    absteigend sortiert.</p>
+</section>
+

@@ -1,0 +1,97 @@
+<section>
+<h1 class="noupper">Zusammenarbeit mit Git</h1>
+    <ul>
+        <li>eigenen Workspace</li>
+        <li>eigenes Repository</li>
+        <li>Repository</li>
+    </ul>
+</section>
+<section>
+    <h1 class="noupper">Repository klonen</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+cd ..
+git <mark class="fragment" data-fragment-index="1"><mark class="fragment highlight-blue" data-fragment-index="1">clone</mark></mark> <mark class="fragment" data-fragment-index="2"><mark class="fragment highlight-green" data-fragment-index="2">erste-schritte</mark></mark> <mark class="fragment" data-fragment-index="3"><mark class="fragment highlight-red" data-fragment-index="3">erste-schritte-klon</mark></mark>
+<mark class="fragment" data-fragment-index="4">Klone nach 'erste-schritte-klon' ...
+Fertig.</mark>
+</code></pre>
+    <p style="text-align: left" class="fragment" data-fragment-index="1">clone-Befehl bestimmt welche Dateien in das nächste Commit aufgenommen werden </p>
+    <p style="text-align: left" class="fragment" data-fragment-index="2">Quelle</p>
+    <p style="text-align: left" class="fragment" data-fragment-index="3">Ziel</p>
+</section>
+<section>
+    <h1 class="noupper">Verzeichnis</h1>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+gitprojekte
+├── erste-schritte-klon
+│   ├── .git
+│   ├── bar.html
+│   └── foo.txt
+└── erste-schritte
+    ├── .git
+    ├── bar.html
+    └── foo.txt
+</code></pre>
+</section>
+<section>
+    <p class="noupper">Ändert die Datei erste-schritte/foo.txt.</p>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+cd /projekte/erste-schritte
+vi foo.txt
+git add foo.txt
+git commit --message "Eine Änderung im Original."
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">History Kompakt</h1>
+    <pre class=""><code class="hljs bash">git log -oneline
+fc59790 (HEAD -> master) Eine Änderung im Original.
+a7f3ece Einiges geändert.
+6cc5776 init</code></pre>
+</section>
+<section>
+    <p class="noupper">Ändert im nächsten Schritt die Datei erste-schritte-klon/bar.html
+        im Klon-Repository</p>
+    <pre class=""><code class="hljs bash" data-trim data-fragment>
+cd /projekte/erste-schritte-klon
+vi bar.html
+git add bar.html
+git commit --message "Eine Änderung im Klon."
+</code></pre>
+</section>
+<section>
+    <h1 class="noupper">History im Klon</h1>
+    <pre class=""><code class="hljs bash">git log -oneline
+9b29e5c (HEAD -> master) Eine Änderung im Klon.
+a7f3ece (origin/master, origin/HEAD) Einiges geändert.
+6cc5776 init</code></pre>
+</section>
+<section>
+    <p>Wir haben jetzt in jedem Repo zwei gemeinsame Commits und jeweils ein neues Commit. Wir wollen jetzt das neue Commit aus dem Original in den Klon übertragen.</p>
+</section>
+
+<section>
+    <h1 class="noupper">pull-Befehl</h1>
+    <pre class=""><code class="hljs bash">cd /projekte/erste-schritte-klon
+git pull
+remote: Objekte aufzählen: 5, Fertig.
+remote: Zähle Objekte: 100% (5/5), Fertig.
+remote: Komprimiere Objekte: 100% (2/2), Fertig.
+remote: Gesamt 3 (Delta 0), Wiederverwendet 0 (Delta 0)
+Entpacke Objekte: 100% (3/3), Fertig.
+Von /Users/niels/Development/kicktemp/gitprojekte/erste-schritte
+   a7f3ece..fc59790  master     -> origin/master
+Merge made by the 'recursive' strategy.
+ foo.txt | 1 +
+1 file changed, 1 insertion(+)</code></pre>
+</section>
+
+<section>
+    <pre class=""><code class="hljs bash">git log --graph --oneline
+*   5ab262c (HEAD -> master) Merge branch 'master' of /Users/niels/Development/kicktemp/gitprojekte/erste-schritte
+|\
+| * fc59790 (origin/master, origin/HEAD) Eine Änderung im Original.
+* | 9b29e5c Eine Änderung im Klon.
+|/
+* a7f3ece Einiges geändert.
+* 6cc5776 init</code></pre>
+</section>
